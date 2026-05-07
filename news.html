@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News - University of Eastern Pangasinan</title>
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR -->
+  <div class="navbar">
+      <div class="logo">
+    <img src="logo.png" alt="Logo">
+   <span>University of Eastern Pangasinan</span>
+</div>
+ <div class="menu-toggle" id="menuToggle">☰</div>
+        <div class="nav-links">
+            <a href="index.html" data-key="home">Home</a>
+            <a href="about.html" data-key="about">About</a>
+            <a href="courses.html" data-key="programs">Program Offerings</a>
+            <a href="contact.html" data-key="contact">Contact</a>
+            <a href="news.html" class="active" data-key="news">News</a>
+            <a href="team.html" data-key="team">Meet our team</a>
+        </div>
+
+            <div class="nav-right">
+
+    <select id="langToggle" class="lang-btn">
+        <option value="en">ENGLISH</option>
+        <option value="kr">KOREAN</option>
+    </select>
+                    <button id="darkToggle" class="dark-btn">🌙</button>
+         <a href="courses.html"><button class="btn" >Enroll Now</button></a> 
+        </div>
+    </div>
+
+    <!-- TITLE -->
+    <section class="news-title">
+        <h1 data-key="news_title">University News & Updates</h1>
+<p data-key="news_sub">Stay updated with the latest events and announcements</p>
+    </section>
+
+    <!-- FEATURED NEWS -->
+    <div class="featured-news">
+        <img src="111.jpg">
+        <div class="featured-content">
+  <h2 data-key="feat_title">Congratulations to the February 2026 Criminologists Licensure Examination Passers</h2>
+            <p data-key="feat_desc">
+                UEP proudly congratulates its Criminology graduates for successfully passing the February 2026 Licensure Examination, showcasing academic excellence and readiness for public service.
+            </p>
+            <span data-key="feat_date">January 2026</span>
+        </div>
+    </div>
+
+    <!-- NEWS GRID -->
+    <div class="news-grid">
+
+        <div class="news-card">
+            <img src="11.png">
+            <div class="news-content">
+                <h3 data-key="news1">Hello, Vietnam, Again! 2026</h3>
+                <p data-key="news1_desc">UEP celebrates another milestone as students showcase excellence and global competitiveness through international exposure.</p>
+                <span data-key="news1_date">January 2026</span>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <img src="22.jpg">
+            <div class="news-content">
+                <h3 data-key="news2">Criminology Week 2026: Criminology Students Compete in Different Sports - Showcase of Sportsmanship and School Spirit</h3>
+                <p data-key="news2_desc">Criminology students demonstrate teamwork, discipline, and sportsmanship through a week-long series of competitive events.</p>
+                <span data-key="news2_date">February 2026</span>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <img src="33.jpg">
+            <div class="news-content">
+                <h3 data-key="news3">UEP takes part in tree planting at the 12th HCU national and international academic conference in Thailand</h3>
+                <p data-key="news3_desc">UEP strengthens its commitment to sustainability and global collaboration through active participation in international environmental initiatives.</p>
+                <span data-key="news3_date">January 2026</span>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <img src="44.jpg">
+            <div class="news-content">
+                <h3 data-key="news4">UEP Holds Groundbreaking Ceremony for 7-Storey Building</h3>
+                <p data-key="news4_desc">The university marks a major step forward in campus development with the construction of a modern 7-storey academic building.</p>
+                <span data-key="news4_date">January 2026</span>
+            </div>
+        </div>
+          <div class="news-card">
+            <img src="55.jpg">
+            <div class="news-content">
+                <h3 data-key="news5">College of Hospitality Management Students Hold Summer Party: Seas the Moment Cocktail Event as Midterm Laboratory</h3>
+                <p data-key="news5_desc">Hospitality Management students apply real-world skills through a dynamic cocktail event as part of their hands-on midterm laboratory.</p>
+                <span data-key="news5_date">January 2026</span>
+            </div>
+        </div>
+          <div class="news-card">
+            <img src="66.jpg">
+            <div class="news-content">
+                <h3 data-key="news6">Strengthen Students with Combination of Academics and Entrepreneurship</h3>
+                <p data-key="news6_desc">UEP empowers students by integrating academic excellence with entrepreneurial innovation for future-ready graduates.</p>
+                <span data-key="news6_date">January 2026</span>
+            </div>
+        </div>
+          <div class="news-card">
+            <img src="77.png">
+            <div class="news-content">
+                <h3 data-key="news7">UEP has set another voyage back to Indonesia</h3>
+                <p data-key="news7_desc">Strengthening global partnerships, UEP continues its academic journey with international collaboration in Indonesia.</p>
+                <span data-key="news7_date">January 2026</span>
+            </div>
+        </div>
+          <div class="news-card">
+            <img src="88.jpg">
+            <div class="news-content">
+                <h3 data-key="news8">CommTECH Nusantara 2026: Virtual Exploration of Indonesia</h3>
+                <p data-key="news8_desc">Students explore global technology trends through CommTECH Nusantara, enhancing digital knowledge and cross-cultural experience.</p>
+                <span data-key="news8_date">January 2026</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+ <!-- BOTTOM -->
+    <div class="footer-bottom">
+      <p data-key="year">© 2026 University of Eastern Pangasinan | All Rights Reserved</p>
+    </div>
+<script>
+const toggle = document.getElementById("darkToggle");
+
+// load saved mode
+if(localStorage.getItem("darkMode") === "enabled"){
+    document.body.classList.add("dark");
+    toggle.textContent = "☀️";
+}
+
+toggle.onclick = () => {
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+        localStorage.setItem("darkMode","enabled");
+        toggle.textContent = "☀️";
+    } else {
+        localStorage.setItem("darkMode","disabled");
+        toggle.textContent = "🌙";
+    }
+}
+</script>
+<script>
+const translations = {
+    en: {
+         home: "Home",
+        about: "About",
+        programs: "Program Offerings",
+        contact: "Contact",
+        news: "News",
+        team: "Meet our team",
+        enroll: "Enroll Now",
+
+        news_title: "University News & Updates",
+        news_sub: "Stay updated with the latest events and announcements",
+
+        feat_title: "Congratulations to the February 2026 Criminologists Licensure Examination Passers",
+        feat_desc: "UEP proudly congratulates its Criminology graduates for successfully passing the February 2026 Licensure Examination, showcasing academic excellence and readiness for public service.",
+        feat_date: "March 2026",
+
+        news1: "Hello, Vietnam, Again!",
+        news1_desc: "UEP celebrates another milestone as students showcase excellence and global competitiveness through international exposure.",
+        news1_date: "March 2026",
+
+        news2: "Criminology Week 2026: Criminology Students Compete in Different Sports - Showcase of Sportsmanship and School Spirit",
+        news2_desc: "Criminology students demonstrate teamwork, discipline, and sportsmanship through a week-long series of competitive events.",
+        news2_date: "February 2026",
+
+        news3: "UEP takes part in tree planting at the 12th HCU national and international academic conference in Thailand",
+        news3_desc: "UEP strengthens its commitment to sustainability and global collaboration through active participation in international environmental initiatives.",
+        news3_date: "January 2026",
+
+        news4: "UEP Holds Groundbreaking Ceremony for 7-Storey Building",
+        news4_desc: "The university marks a major step forward in campus development with the construction of a modern 7-storey academic building.",
+        news4_date: "February 2026",
+        
+        news5: "College of Hospitality Management Students Hold  Summer Party: Seas the Moment Cocktail Event as Midterm Laboratoryg",
+       news5_desc: "Hospitality Management students apply real-world skills through a dynamic cocktail event as part of their hands-on midterm laboratory.",
+        news5_date: "February 2026",
+        
+        news6: "Strengthen Students with Combination of Academics and Entrepreneurship",
+        news6_desc: "UEP empowers students by integrating academic excellence with entrepreneurial innovation for future-ready graduates.",
+        news6_date: "February 2026",
+        
+        news7: "UEP has set another voyage back to Indonesia",
+        news7_desc: "Strengthening global partnerships, UEP continues its academic journey with international collaboration in Indonesia.",
+        news7_date: "February 2026",
+        
+        news8: "CommTECH Nusantara 2026: Virtual Exploration of Indonesia",
+        news8_desc: "Students explore global technology trends through CommTECH Nusantara, enhancing digital knowledge and cross-cultural experience.",
+        news8_date: "February 2026",
+           year: "© 2026 University of Eastern Pangasinan | All Rights Reserved"
+    },
+
+    kr: {
+         home: "홈",
+        about: "소개",
+        programs: "프로그램",
+        contact: "문의",
+        news: "뉴스",
+        team: "팀 소개",
+        enroll: "등록하기",
+
+        news_title: "대학교 뉴스 및 공지",
+        news_sub: "최신 행사와 공지사항을 확인하세요",
+
+        feat_title: "노바텍 대학교 혁신 센터 개관",
+        feat_desc: "최첨단 기술과 연구 시설을 제공하는 혁신 센터를 개관했습니다.",
+        feat_date: "2026년 4월",
+
+        news1: "졸업식 2026",
+        news1_desc: "졸업생들의 성취를 축하합니다.",
+        news1_date: "2026년 3월",
+
+        news2: "장학금 프로그램 모집",
+        news2_desc: "재정 지원 프로그램에 지금 지원하세요.",
+        news2_date: "2026년 2월",
+
+        news3: "학생 리더십 교육",
+        news3_desc: "학생들의 리더십 역량 강화.",
+        news3_date: "2026년 1월",
+
+        news4: "기술 심포지엄 2026",
+        news4_desc: "기술과 혁신의 미래를 논의합니다.",
+        news4_date: "2026년 12월",
+                year: "© 2026 노바텍 대학교 | 판권 소유"
+    }
+};
+
+const langToggle = document.getElementById("langToggle");
+
+// load saved
+const savedLang = localStorage.getItem("lang") || "en";
+setLanguage(savedLang);
+langToggle.value = savedLang;
+
+langToggle.addEventListener("change", () => {
+    const lang = langToggle.value;
+    localStorage.setItem("lang", lang);
+    setLanguage(lang);
+});
+
+function setLanguage(lang){
+    document.querySelectorAll("[data-key]").forEach(el=>{
+        const key = el.getAttribute("data-key");
+        if(translations[lang][key]){
+            el.textContent = translations[lang][key];
+        }
+    });
+}
+</script>
+    <script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.querySelector(".nav-links");
+
+menuToggle.onclick = () => {
+    navLinks.classList.toggle("active");
+        document.querySelector(".nav-right").classList.toggle("active");
+};
+
+</script>
+</body>
+</html>

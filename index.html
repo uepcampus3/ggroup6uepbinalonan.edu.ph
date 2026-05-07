@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University of Eastern Pangasinan</title>
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR ONLY (NO TOPBAR) -->
+    <div class="navbar">
+      <div class="logo">
+    <img src="logo.png" alt="Logo">
+    <span>University of Eastern Pangasinan</span>
+    
+</div>
+    <div class="menu-toggle" id="menuToggle">☰</div>
+        <div class="nav-links">
+            <a href="index.html"class="active" data-key="home">Home</a>
+            <a href="about.html" data-key="about">About</a>
+            <a href="courses.html" data-key="programs">Program Offerings</a>
+            <a href="contact.html" data-key="contact">Contact</a>
+            <a href="news.html" data-key="news">News</a>
+            <a href="team.html" data-key="team">Meet our team</a>
+        </div>
+
+             <div class="nav-right">
+                <select id="langToggle" class="lang-btn">
+    <option value="en">ENGLISH</option>
+    <option value="kr">KOREAN</option>
+</select>
+                <button id="darkToggle" class="dark-btn">🌙</button>
+            
+           <a href="courses.html"><button class="btn" data-key="enroll">Enroll Now</button></a> 
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-text">
+            <h1 data-key="hero_title">
+                <span class="highlight">World-class</span> education 
+                for building the future
+            </h1>
+
+            <p data-key="hero_sub">
+            At the University of Eastern Pangasinan, we empower students to become future-ready professionals through innovation-driven learning, strong leadership development, and a commitment to academic excellence. Our institution fosters a dynamic environment where knowledge meets real-world application, preparing graduates to lead, adapt, and excel in an ever-evolving global landscape.
+            </p>
+
+         <a href="about.html"><button class="cta-btn"   data-key="about_btn">About us →</button></a>
+        </div>
+
+        <div class="hero-img">
+            <img src="UEP.jpg">
+        </div>
+    </div>
+<!-- ADVERTISEMENT / PROMO -->
+<section class="ads">
+
+    <div class="ads-card">
+
+        <div class="ads-text">
+            <h2  data-key="ads_title">🎓 Admissions Now Open!</h2>
+            <p data-key="ads_text">
+                Start your journey with the University of Eastern Pangasinan and take the first step toward a brighter future. Our institution offers quality education, innovative learning experiences, and a supportive academic environment designed to help you grow both personally and professionally. Enroll now and become part of a dynamic community committed to excellence, leadership, and global competitiveness.
+            </p>
+
+            <a href="courses.html">
+                <button class="btn" data-key="apply_btn">Apply Now</button>
+            </a>
+        </div>
+
+        <div class="ads-img">
+    <video autoplay muted loop playsinline>
+        <source src="uep.mp4" type="video/mp4">
+    </video>
+</div>
+
+    </div>
+
+</section>
+</div>
+ <!-- BOTTOM -->
+    <div class="footer-bottom">
+   <p data-key="year">© 2026 University of Eastern Pangasinan| All Rights Reserved</p>
+    </div>
+<!-- EVENT MODAL -->
+
+<script>
+function openEventModal(){
+    document.getElementById("eventModal").style.display = "flex";
+}
+
+function closeEventModal(){
+    document.getElementById("eventModal").style.display = "none";
+}
+
+// close kapag click outside
+window.onclick = function(e){
+    let modal = document.getElementById("eventModal");
+    if(e.target == modal){
+        modal.style.display = "none";
+    }
+}
+
+</script>
+<script>
+window.addEventListener("scroll",()=>{
+    const nav = document.querySelector(".navbar");
+
+    if(window.scrollY > 10){
+        nav.style.boxShadow = "0 20px 50px rgba(0,0,0,0.2)";
+    }else{
+        nav.style.boxShadow = "0 10px 30px rgba(0,0,0,0.1)";
+    }
+});
+</script>
+<script>
+const toggle = document.getElementById("darkToggle");
+
+// load saved mode
+if(localStorage.getItem("darkMode") === "enabled"){
+    document.body.classList.add("dark");
+    toggle.textContent = "☀️";
+}
+
+toggle.onclick = () => {
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+        localStorage.setItem("darkMode","enabled");
+        toggle.textContent = "☀️";
+    } else {
+        localStorage.setItem("darkMode","disabled");
+        toggle.textContent = "🌙";
+    }
+}
+</script>
+<script>
+const translations = {
+    en: {
+        home: "Home",
+        about: "About",
+        programs: "Program Offerings",
+        contact: "Contact",
+        news: "News",
+        team: "Meet our team",
+        enroll: "Enroll Now",
+        title: "Program Offerings",
+        subtitle: "Explore our wide range of academic programs",
+        about_btn: "About us →",
+         hero_title: "World-class education for building the future",
+         hero_sub: "At the University of Eastern Pangasinan, we empower students to become future-ready professionals through innovation-driven learning, strong leadership development, and a commitment to academic excellence. Our institution fosters a dynamic environment where knowledge meets real-world application, preparing graduates to lead, adapt, and excel in an ever-evolving global landscape.",
+         ads_title: "🎓 Admissions Now Open!",
+          ads_text: "Start your journey with the University of Eastern Pangasinan and take the first step toward a brighter future. Our institution offers quality education, innovative learning experiences, and a supportive academic environment designed to help you grow both personally and professionally. Enroll now and become part of a dynamic community committed to excellence, leadership, and global competitiveness.",  apply_btn: "Apply Now",
+     year: "© 2026 University of Eastern Pangasinan | All Rights Reserved"
+    },
+    kr: {
+        home: "홈",
+        about: "소개",
+        programs: "프로그램",
+        contact: "문의",
+        news: "뉴스",
+        team: "팀 소개",
+        enroll: "등록하기",
+        title: "프로그램 제공",
+        subtitle: "다양한 학업 프로그램을 확인하세요",
+        about_btn: "소개 보기 →",
+            hero_title: "세계적 수준의 교육으로 미래를 만듭니다",
+    hero_sub: "이스트 펑가시난 대학교에서는 혁신 중심 학습, 강력한 리더십 개발, 그리고 학문적 우수성에 대한 헌신을 통해 학생들이 미래에 대비한 전문가가 되도록 역량을 강화합니다. 우리 기관은 지식과 실제 적용이 만나는 역동적인 환경을 조성하여 졸업생들이 계속 변화하는 글로벌 환경에서 리더십을 발휘하고, 적응하며, 탁월하게 성과를 내도록 준비시킵니다.",
+    ads_title: "🎓 입학 접수 시작!",
+    ads_text: "동부 팡가시난 대학교와 함께 여정을 시작하고 더 밝은 미래를 향한 첫걸음을 내딛으세요. 우리 기관은 양질의 교육, 혁신적인 학습 경험, 그리고 개인적 및 직업적 성장을 도와주는 지원적인 학문 환경을 제공합니다. 지금 등록하여 탁월함, 리더십, 글로벌 경쟁력을 추구하는 역동적인 커뮤니티의 일원이 되세요.",
+    apply_btn: "지금 지원하기",
+        year: "© 2026 노바텍 대학교 | 판권 소유"
+
+
+    }
+};
+
+const langToggle = document.getElementById("langToggle");
+
+// load saved language
+const savedLang = localStorage.getItem("lang") || "en";
+setLanguage(savedLang);
+langToggle.value = savedLang;
+
+langToggle.addEventListener("change", () => {
+    const lang = langToggle.value;
+    localStorage.setItem("lang", lang);
+    setLanguage(lang);
+});
+
+function setLanguage(lang){
+    document.querySelectorAll("[data-key]").forEach(el=>{
+        const key = el.getAttribute("data-key");
+        if(translations[lang][key]){
+            el.textContent = translations[lang][key];
+        }
+    });
+}
+
+</script>
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.querySelector(".nav-links");
+
+menuToggle.onclick = () => {
+    navLinks.classList.toggle("active");
+        document.querySelector(".nav-right").classList.toggle("active");
+};
+
+</script>
+
+</body>
+</html>

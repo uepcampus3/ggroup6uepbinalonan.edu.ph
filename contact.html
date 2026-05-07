@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - University of Eastern Pangasinan</title>
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR -->
+  <div class="navbar">
+      <div class="logo">
+    <img src="logo.png" alt="Logo">
+ <span>University of Eastern Pangasinan</span>
+</div>
+ <div class="menu-toggle" id="menuToggle">☰</div>
+         <div class="nav-links">
+            <a href="index.html" data-key="home">Home</a>
+            <a href="about.html" data-key="about">About</a>
+            <a href="courses.html" data-key="programs">Program Offerings</a>
+            <a href="contact.html" class="active" data-key="contact">Contact</a>
+            <a href="news.html" data-key="news">News</a>
+            <a href="team.html" data-key="team">Meet our team</a>
+        </div>
+
+      <div class="nav-right">
+            <select id="langToggle" class="lang-btn">
+        <option value="en">ENGLISH</option>
+        <option value="kr">KOREAN</option>
+    </select>
+            <button id="darkToggle" class="dark-btn">🌙</button>
+         <a href="courses.html"><button class="btn" >Enroll Now</button></a> 
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact">
+
+        <h1 data-key="contact_title">We'd love to hear from you!</h1>
+        <p data-key="contact_sub">Our university is ready to answer your questions.</p>
+
+       <form class="contact-form" onsubmit="showSuccess(event)">
+
+            <input type="text" placeholder="Full Name" required  data-key="name">
+            <input type="text" placeholder="Contact Number" required data-key="number">
+            <input type="email" placeholder="Email Address" required data-key="email">
+
+            <select required data-key="department">
+                    <option data-key="dept_default">Select Department</option>
+    <option data-key="dept1">Admissions</option>
+    <option data-key="dept2">Registrar</option>
+    <option data-key="dept3">Finance</option>
+    <option data-key="dept4">Student Affairs</option>
+            </select>
+
+            <textarea placeholder="Your Message" required data-key="message"></textarea></textarea>
+
+            <button type="submit" class="btn" data-key="send">Send Message</button>
+
+        </form>
+
+        <!-- CONTACT INFO -->
+        <div class="contact-info">
+            <p>📍 Binalonan, Pangasinan, Philippines</p>
+            <p>📞 +63 912 345 6789</p>
+            <p>📧 universityofeasternpangasinan@gmail.com</p>
+        </div>
+
+    </section>
+
+</div>
+<!-- SUCCESS MODAL -->
+<div id="successModal" class="modal">
+    <div class="modal-content success-box">
+
+        <h2 data-key="success_title">✅ Message Sent!</h2>
+        <p data-key="success_desc">Your message has been successfully submitted. We will contact you soon.</p>
+
+        <button class="btn" onclick="closeSuccess()" data-key="ok">OK</button>
+
+    </div>
+</div>
+ <!-- BOTTOM -->
+    <div class="footer-bottom">
+           <p data-key="year">© 2026 University of Eastern Pangasinan | All Rights Reserved</p>
+    </div>
+<script>
+function showSuccess(e){
+    e.preventDefault(); // prevent reload
+    document.getElementById("successModal").style.display = "flex";
+}
+
+function closeSuccess(){
+    document.getElementById("successModal").style.display = "none";
+}
+</script>
+<script>
+const toggle = document.getElementById("darkToggle");
+
+// load saved mode
+if(localStorage.getItem("darkMode") === "enabled"){
+    document.body.classList.add("dark");
+    toggle.textContent = "☀️";
+}
+
+toggle.onclick = () => {
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+        localStorage.setItem("darkMode","enabled");
+        toggle.textContent = "☀️";
+    } else {
+        localStorage.setItem("darkMode","disabled");
+        toggle.textContent = "🌙";
+    }
+}
+</script>
+<script>
+const translations = {
+    en: {
+         home: "Home",
+        about: "About",
+        programs: "Program Offerings",
+        contact: "Contact",
+        news: "News",
+        team: "Meet our team",
+        enroll: "Enroll Now",
+        contact_title: "We'd love to hear from you!",
+        contact_sub: "Our university is ready to answer your questions.",
+
+        name: "Full Name",
+        number: "Contact Number",
+        email: "Email Address",
+
+        dept_default: "Select Department",
+        dept1: "Admissions",
+        dept2: "Registrar",
+        dept3: "Finance",
+        dept4: "Student Affairs",
+
+        message: "Your Message",
+        send: "Send Message",
+
+        success_title: "✅ Message Sent!",
+        success_desc: "Your message has been successfully submitted. We will contact you soon.",
+        ok: "OK",
+            year: "© 2026 University of Eastern Pangasinan | All Rights Reserved"
+    },
+
+    kr: {
+  home: "홈",
+        about: "소개",
+        programs: "프로그램",
+        contact: "문의",
+        news: "뉴스",
+        team: "팀 소개",
+        enroll: "등록하기",
+        contact_title: "문의하기",
+        contact_sub: "저희 대학은 여러분의 질문에 답변할 준비가 되어 있습니다.",
+
+        name: "이름",
+        number: "연락처",
+        email: "이메일 주소",
+
+        dept_default: "부서 선택",
+        dept1: "입학처",
+        dept2: "학사과",
+        dept3: "재무부",
+        dept4: "학생처",
+
+        message: "메시지 입력",
+        send: "메시지 보내기",
+
+        success_title: "✅ 메시지 전송 완료!",
+        success_desc: "메시지가 성공적으로 전송되었습니다. 곧 연락드리겠습니다.",
+        ok: "확인",
+            year: "© 2026 노바텍 대학교 | 판권 소유"
+    }
+};
+
+const langToggle = document.getElementById("langToggle");
+
+// load saved
+const savedLang = localStorage.getItem("lang") || "en";
+setLanguage(savedLang);
+langToggle.value = savedLang;
+
+langToggle.addEventListener("change", () => {
+    const lang = langToggle.value;
+    localStorage.setItem("lang", lang);
+    setLanguage(lang);
+});
+
+function setLanguage(lang){
+    document.querySelectorAll("[data-key]").forEach(el=>{
+        const key = el.getAttribute("data-key");
+
+        if(translations[lang][key]){
+            // for inputs & textarea
+            if(el.placeholder !== undefined){
+                el.placeholder = translations[lang][key];
+            }
+            else{
+                el.textContent = translations[lang][key];
+            }
+        }
+    });
+}
+</script>
+    <script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.querySelector(".nav-links");
+
+menuToggle.onclick = () => {
+    navLinks.classList.toggle("active");
+        document.querySelector(".nav-right").classList.toggle("active");
+};
+
+</script>
+</body>
+</html>

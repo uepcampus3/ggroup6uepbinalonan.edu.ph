@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses - University of Eastern Pangasinan</title>
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+    <!-- NAVBAR ONLY (NO TOPBAR) -->
+    <div class="navbar">
+      <div class="logo">
+    <img src="logo.png" alt="Logo">
+  <span>University of Eastern Pangasinan</span>
+</div>
+ <div class="menu-toggle" id="menuToggle">☰</div>
+        <div class="nav-links">
+           <a href="index.html" data-key="home">Home</a>
+<a href="about.html" data-key="about">About</a>
+<a href="courses.html" class="active" data-key="programs">Program Offerings</a>
+<a href="contact.html" data-key="contact">Contact</a>
+<a href="news.html" data-key="news">News</a>
+<a href="team.html" data-key="team">Meet our team</a>
+        </div>
+
+              <div class="nav-right">
+                <select id="langToggle" class="lang-btn">
+    <option value="en">ENGLISH</option>
+    <option value="kr">KOREAN</option>
+</select>
+                    <button id="darkToggle" class="dark-btn">🌙</button>
+           <a href="courses.html"><button class="btn" data-key="enroll" >Enroll Now</button></a> 
+        </div>
+    </div>
+
+
+    <!-- TITLE -->
+    <section class="courses-title">
+        <h1>Program Offerings</h1>
+        <p>Explore our wide range of academic programs</p>
+    </section>
+
+    <!-- COURSES GRID -->
+    <div class="courses-grid">
+
+        <!-- SAMPLE CARD (copy auto sa JS) -->
+    </div>
+
+</div>
+
+<!-- MODAL -->
+<!-- PREMIUM ENROLL MODAL -->
+<div id="enrollModal" class="modal">
+    <div class="modal-content enroll-box">
+
+        <span class="close" onclick="closeModal()">&times;</span>
+
+      <h2 id="modalTitle">🎓 Student Enrollment</h2>
+        <p class="sub" id="modalSub">Fill in your details to apply</p>
+        <form onsubmit="submitForm(event)" class="enroll-form">
+
+            <input type="text" placeholder="Full Name *" required>
+            <input type="email" placeholder="Email Address *" required>
+            <input type="text" placeholder="Contact Number *" required>
+
+            <select required>
+                <option value="">Select Gender *</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+
+            <input type="text" placeholder="Birthday (dd/mm/yyyy)" 
+       onfocus="(this.type='date')" 
+       onblur="if(!this.value)this.type='text'" required>
+
+            <input type="text" id="courseName" readonly>
+
+            <textarea placeholder="Why did you choose this course?"></textarea>
+
+            <button type="submit" class="btn">Submit Application</button>
+
+        </form>
+
+    </div>
+</div>
+<!-- SUCCESS MODAL -->
+<div id="successModal" class="modal">
+    <div class="modal-content success-box">
+
+        <div class="success-icon">✔</div>
+
+        <h2>Enrollment Successful!</h2>
+        <p>Your application has been submitted successfully. We will contact you soon.</p>
+
+        <button class="btn" onclick="closeSuccess()">Continue</button>
+
+    </div>
+</div>
+ <!-- BOTTOM -->
+    <div class="footer-bottom">
+         <p>© 2026 University of Eastern Pangasinan | All Rights Reserved</p>
+    </div>
+
+<script>
+    const globalTranslations = {
+    en: {
+        home: "Home",
+        about: "About",
+        programs: "Program Offerings",
+        contact: "Contact",
+        news: "News",
+        team: "Meet our team",
+        enroll: "Enroll Now"
+    },
+    kr: {
+        home: "홈",
+        about: "소개",
+        programs: "프로그램",
+        contact: "문의",
+        news: "뉴스",
+        team: "팀 소개",
+        enroll: "등록하기"
+    }
+};
+function applyGlobalTranslation(lang){
+    document.querySelectorAll("[data-key]").forEach(el=>{
+        const key = el.getAttribute("data-key");
+        if(globalTranslations[lang][key]){
+            el.textContent = globalTranslations[lang][key];
+        }
+    });
+}const courses = [
+{
+    name: {
+        en: "Bachelor of Science in Information Technology",
+        kr: "정보기술학과"
+    },
+    desc: {
+        en: "Learn programming, networking, and cybersecurity to build modern IT solutions.",
+        kr: "프로그래밍, 네트워크, 사이버 보안을 배우며 IT 솔루션을 개발합니다."
+    },
+    img:"photswebsite/it.jpg"
+},
+
+{
+    name: {
+        en: "Bachelor of Science in Business Administration",
+        kr: "경영학과"
+    },
+    desc: {
+        en: "Develop leadership, marketing, and management skills for global business.",
+        kr: "리더십, 마케팅, 경영 능력을 키워 글로벌 비즈니스를 준비합니다."
+    },
+    img:"photswebsite/acountancy.jpg"
+},
+
+{
+    name: {
+        en: "Bachelor of Science in Accountancy",
+        kr: "회계학과"
+    },
+    desc: {
+        en: "Gain expertise in financial reporting, auditing, and taxation.",
+        kr: "재무보고, 감사, 세무 분야의 전문 지식을 습득합니다."
+    },
+    img:"photswebsite/acountancy.jpg"
+},
+
+{
+    name: {
+        en: "Bachelor of Science in Civil Engineering",
+        kr: "토목공학과"
+    },
+    desc: {
+        en: "Design and build infrastructure like roads, bridges, and buildings.",
+        kr: "도로, 교량, 건축물 등 인프라를 설계하고 건설합니다."
+    },
+    img:"photswebsite/Engineering.jpg"
+},
+
+{
+    name: {
+        en: "Bachelor of Education",
+        kr: "교육학과"
+    },
+    desc: {
+        en: "Prepare to become a professional teacher with modern teaching strategies.",
+        kr: "현대적인 교육 방법으로 전문 교사가 되기 위한 준비를 합니다."
+    },
+    img:"photswebsite/educ.jpg"
+},
+
+{
+    name: {
+        en: "Bachelor of Science in Hospitality Management",
+        kr: "호텔경영학과"
+    },
+    desc: {
+        en: "Learn hotel, restaurant, and tourism operations management.",
+        kr: "호텔, 레스토랑, 관광 운영 관리 기술을 배웁니다."
+    },
+    img:"photswebsite/hospitality.jpg"
+},
+
+    {
+    name: {
+        en: "Bachelor of Science in Midwifery",
+        kr: "호텔경"
+    },
+    desc: {
+        en: "Learn maternal care, childbirth assistance, and newborn health management.",
+        kr: "산모 관리, 분만 보조 및 신생아 건강 관리를 배웁니다."
+    },
+    img:"photswebsite/midwifery.jpg"
+},
+
+    
+{
+    name: {
+        en: "Bachelor of Science in Criminology",
+        kr: "범죄학과"
+    },
+    desc: {
+        en: "Study crime prevention, law enforcement, and forensic investigation.",
+        kr: "범죄 예방, 법 집행, 과학 수사를 연구합니다."
+    },
+    img:"photswebsite/criminology.jpg"
+}
+];
+
+const courseTranslations = {
+    en: {
+        desc: (name) => `Gain industry-level knowledge and skills in ${name}.`,
+        btn: "Enroll Now",
+        title: "Program Offerings",
+        sub: "Explore our wide range of academic programs"
+    },
+    kr: {
+        desc: (name) => `${name} 분야에서 전문 지식과 기술을 습득하세요.`,
+        btn: "등록하기",
+        title: "프로그램 제공",
+        sub: "다양한 학업 프로그램을 확인하세요"
+    }
+};
+function translateModal(lang){
+    if(lang === "kr"){
+        document.getElementById("modalTitle").textContent = "🎓 학생 등록";
+        document.getElementById("modalSub").textContent = "지원서를 작성해주세요";
+
+        document.querySelector(".enroll-form button").textContent = "신청하기";
+    } else {
+        document.getElementById("modalTitle").textContent = "🎓 Student Enrollment";
+        document.getElementById("modalSub").textContent = "Fill in your details to apply";
+
+        document.querySelector(".enroll-form button").textContent = "Submit Application";
+    }
+}
+
+const grid = document.querySelector(".courses-grid");
+function renderCourses(lang){
+    grid.innerHTML = "";
+
+    courses.forEach(course=>{
+        grid.innerHTML += `
+        <div class="course-card">
+            <img src="${course.img}">
+            <div class="course-content">
+               <h3>${course.name[lang]}</h3>
+                <p>${course.desc[lang]}</p>
+                <button onclick="openModal('${course.name[lang]}')">
+                    ${courseTranslations[lang].btn}
+                </button>
+            </div>
+        </div>
+        `;
+    });
+
+    // TITLE
+    document.querySelector(".courses-title h1").textContent = courseTranslations[lang].title;
+    document.querySelector(".courses-title p").textContent = courseTranslations[lang].sub;
+}
+const langToggle = document.getElementById("langToggle");
+
+const savedLang = localStorage.getItem("lang") || "en";
+langToggle.value = savedLang;
+
+renderCourses(savedLang);
+applyGlobalTranslation(savedLang);
+translateModal(savedLang);
+
+langToggle.addEventListener("change", ()=>{
+const lang = langToggle.value;
+localStorage.setItem("lang", lang);
+
+renderCourses(lang);
+applyGlobalTranslation(lang);
+translateModal(lang);
+});
+</script>
+<script>
+function openModal(course){
+    document.getElementById("enrollModal").style.display = "flex";
+    document.getElementById("courseName").value = course;
+}
+
+function closeModal(){
+    document.getElementById("enrollModal").style.display = "none";
+}
+
+function submitForm(e){
+    e.preventDefault();
+
+    document.getElementById("enrollModal").style.display = "none";
+    document.getElementById("successModal").style.display = "flex";
+
+    document.querySelector(".enroll-form").reset();
+}
+
+function closeSuccess(){
+    document.getElementById("successModal").style.display = "none";
+}
+
+// click outside close
+window.onclick = function(e){
+    let modal = document.getElementById("enrollModal");
+    if(e.target == modal){
+        modal.style.display = "none";
+    }
+}
+</script>
+<script>
+const toggle = document.getElementById("darkToggle");
+
+// load saved mode
+if(localStorage.getItem("darkMode") === "enabled"){
+    document.body.classList.add("dark");
+    toggle.textContent = "☀️";
+}
+
+toggle.onclick = () => {
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+        localStorage.setItem("darkMode","enabled");
+        toggle.textContent = "☀️";
+    } else {
+        localStorage.setItem("darkMode","disabled");
+        toggle.textContent = "🌙";
+    }
+}
+
+</script>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.querySelector(".nav-links");
+
+menuToggle.onclick = () => {
+    navLinks.classList.toggle("active");
+        document.querySelector(".nav-right").classList.toggle("active");
+};
+
+</script>
+</body>
+</html>

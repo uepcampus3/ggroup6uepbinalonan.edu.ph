@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team - University of Eastern Pangasinan</title>
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.png">
+           <span>University of Eastern Pangasinan</span>
+        </div>
+ <div class="menu-toggle" id="menuToggle">☰</div>
+      <div class="nav-links">
+            <a href="index.html" data-key="home">Home</a>
+            <a href="about.html" data-key="about">About</a>
+            <a href="courses.html" data-key="programs">Program Offerings</a>
+            <a href="contact.html" data-key="contact">Contact</a>
+            <a href="news.html" data-key="news">News</a>
+            <a href="team.html" class="active" data-key="team">Meet our Team</a>
+        </div>
+
+ 
+            <div class="nav-right">
+
+    <select id="langToggle" class="lang-btn">
+        <option value="en">ENGLISH</option>
+        <option value="kr">KOREAN</option>
+    </select>
+                    <button id="darkToggle" class="dark-btn">🌙</button>
+         <a href="courses.html"><button class="btn" >Enroll Now</button></a> 
+        </div>
+    </div>
+
+    <!-- COVER PHOTO -->
+    <section class="team-cover">
+        <img src="images/group.jpg">
+        <div class="overlay">
+            <h1  data-key="team_title">Meet Our Team</h1>
+            <p data-key="team_sub">Driven by passion. Powered by collaboration.</p>
+        </div>
+    </section>
+
+    <!-- TEAM GRID -->
+    <section class="team">
+        <h2 data-key="members_title">Our Members</h2>
+
+        <div class="team-grid">
+
+            <!-- MEMBER CARD (duplicate x10) -->
+            <div class="member">
+                <img src="images/godoy.jpg">
+                <h3>Marc Jhorrel Godoy.</h3>
+              <p data-key="role_pm">PROJECT MANAGER</p>
+            </div>
+
+            <div class="member">
+                <img src="images/ligot.jpg">
+                <h3>Iyha Sheene Ligot.</h3>
+              <p data-key="role_ui">UI/UX DESIGNER</p>
+            </div>
+
+            <div class="member">
+                <img src="images/daniella.jpg">
+                <h3>Daniella Mae Loresco.</h3>
+               <p data-key="role_html">HTML DEVELOPER</p>
+            </div>
+
+            <div class="member">
+                <img src="images/jessie.jpg">
+                <h3>Jessie Quero.</h3>
+                <p data-key="role_css">CSS DESIGNER</p>
+            </div>
+
+            <div class="member">
+                <img src="images/c30fb435-8bb3-4f0f-828d-18cc9843c217.jpg">
+                <h3>Jb Sungcuan.</h3>
+               <p data-key="role_css">CSS DESIGNER</p>
+            </div>
+
+            <div class="member">
+                <img src="images/jheddddddd.png">
+                <h3>Jhedrick Palaganas.</h3>
+           <p data-key="role_js">JAVASCRIPT DEVELOPER</p>
+            </div>
+
+            <div class="member">
+                <img src="images/junco.jpg">
+                <h3>Mark Anthony Junco.</h3>
+             <p data-key="role_content">CONTENT CREATOR</p>
+            </div>
+
+            <div class="member">
+                <img src="images/672957494_2796222400717537_6241880272259145780_n.jpg">
+                <h3>Eduardo Godoy Jr.</h3>
+               <p data-key="role_test">TESTER/DEBUGGER</p>
+            </div>
+
+           
+
+        </div>
+    </section>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer-bottom">
+   <p data-key="year">© 2026 University of Eastern Pangasinan | All Rights Reserved</p>
+</div>
+<script>
+const toggle = document.getElementById("darkToggle");
+
+// load saved mode
+if(localStorage.getItem("darkMode") === "enabled"){
+    document.body.classList.add("dark");
+    toggle.textContent = "☀️";
+}
+
+toggle.onclick = () => {
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+        localStorage.setItem("darkMode","enabled");
+        toggle.textContent = "☀️";
+    } else {
+        localStorage.setItem("darkMode","disabled");
+        toggle.textContent = "🌙";
+    }
+}
+</script>
+<script>
+const translations = {
+    en: {
+        home: "Home",
+        about: "About",
+        programs: "Program Offerings",
+        contact: "Contact",
+        news: "News",
+        team: "Meet our Team",
+        enroll: "Enroll Now",
+
+        team_title: "Meet Our Team",
+        team_sub: "Driven by passion. Powered by collaboration.",
+        members_title: "Our Members",
+
+        role_pm: "PROJECT MANAGER",
+        role_ui: "UI/UX DESIGNER",
+        role_html: "HTML DEVELOPER",
+        role_css: "CSS DESIGNER",
+        role_js: "JAVASCRIPT DEVELOPER",
+        role_content: "CONTENT CREATOR",
+        role_test: "TESTER/DEBUGGER",
+           year: "© 2026 University of Eastern Pangasinan | All Rights Reserved"
+    },
+
+    kr: {
+        home: "홈",
+        about: "소개",
+        programs: "프로그램",
+        contact: "문의",
+        news: "뉴스",
+        team: "팀 소개",
+        enroll: "등록하기",
+
+        team_title: "우리 팀 소개",
+        team_sub: "열정으로 움직이고 협력으로 성장합니다.",
+        members_title: "팀 구성원",
+
+        role_pm: "프로젝트 관리자",
+        role_ui: "UI/UX 디자이너",
+        role_html: "HTML 개발자",
+        role_css: "CSS 디자이너",
+        role_js: "자바스크립트 개발자",
+        role_content: "콘텐츠 제작자",
+        role_test: "테스터 / 디버거",
+                year: "© 2026 노바텍 대학교 | 판권 소유"
+    }
+};
+
+const langToggle = document.getElementById("langToggle");
+
+// load saved
+const savedLang = localStorage.getItem("lang") || "en";
+setLanguage(savedLang);
+langToggle.value = savedLang;
+
+langToggle.addEventListener("change", () => {
+    const lang = langToggle.value;
+    localStorage.setItem("lang", lang);
+    setLanguage(lang);
+});
+
+function setLanguage(lang){
+    document.querySelectorAll("[data-key]").forEach(el=>{
+        const key = el.getAttribute("data-key");
+        if(translations[lang][key]){
+            el.textContent = translations[lang][key];
+        }
+    });
+}
+</script>
+    <script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.querySelector(".nav-links");
+
+menuToggle.onclick = () => {
+    navLinks.classList.toggle("active");
+        document.querySelector(".nav-right").classList.toggle("active");
+};
+
+</script>
+</body>
+</html>
